@@ -1,5 +1,5 @@
 {
-  "name": "pulse_contract",
+  "name": "contracts",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,15 +10,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@nomicfoundation/hardhat-ignition": "^3.0.2",
-    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.0",
-    "@types/node": "^22.18.0",
-    "forge-std": "github:foundry-rs/forge-std#v1.9.4",
-    "hardhat": "^3.0.4",
-    "typescript": "~5.8.0",
-    "viem": "^2.37.1"
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "hardhat": "^2.26.3"
   },
-  "type": "module",
   "dependencies": {
     "@openzeppelin/contracts": "^5.4.0",
     "dotenv": "^17.2.2"
