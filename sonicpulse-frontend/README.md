@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# SonicPulse – Real-Time On-Chain Coordination
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Decentralized infrastructure for real-time coordination of moving things.
 
-## Available Scripts
+[![Live Demo](https://sonicpulse-two.vercel.app/)]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-In the project directory, you can run:
+SonicPulse is a proof-of-concept demonstrating a decentralized, real-time coordination layer for IoT devices, such as vehicles and drones, built on the **Sonic blockchain**.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 The Problem
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Current traffic, delivery, and IoT systems are centralized, leading to single points of failure, vendor lock-in, and a lack of trust between competing entities (e.g., two different delivery companies). Furthermore, most blockchains are too slow and expensive for the high-frequency updates required for real-time coordination.
 
-### `npm test`
+## ✨ The Solution
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+SonicPulse leverages the unique features of the Sonic blockchain to create a trustless, real-time coordination layer.
 
-### `npm run build`
+-   **On-Chain State:** Devices stream state updates (location, speed) directly to the blockchain.
+-   **Smart Coordination:** Smart contracts govern access to shared resources, like intersections, with sub-second finality.
+-   **Dynamic NFTs:** Each vehicle is a dynamic NFT, with its metadata reflecting its live, on-chain state.
+-   **Gas-Free Experience:** Using a "Sponsor" model (simulating Sonic's FeeM), device transactions can be paid for by a sponsoring entity (like a city or a company), removing the friction of gas fees for end-users and devices.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🔗 Live Demo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can view a live, two-vehicle simulation running on the Sonic Testnet here:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**[https://YOUR_NETLIFY_DEPLOYMENT_URL](https://YOUR_NETLIFY_DEPLOYMENT_URL)**
 
-### `npm run eject`
+## ⚡ Why Sonic?
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project is only possible on a high-performance blockchain like Sonic.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Sonic Feature         | Advantage for SonicPulse                               |
+| --------------------- | ------------------------------------------------------ |
+| **Sub-second Finality** | Enables real-time, high-stakes decisions for vehicles. |
+| **Low Gas Fees**      | Makes high-frequency updates economically viable.      |
+| **FeeM (Simulated)**  | Allows for a seamless, "gas-free" user experience.     |
+| **EVM Compatibility** | Enabled rapid development with familiar Solidity tools.  |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠️ Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-   **Blockchain:** Sonic Testnet
+-   **Smart Contracts:** Solidity, Hardhat, Ethers.js
+-   **Frontend:** React, Leaflet.js
+-   **Dynamic NFT API:** Vercel Serverless Functions
+-   **Simulators:** Node.js
 
-## Learn More
+## 🖥️ Running the Project Locally
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run the full simulation on your local machine, you will need three terminal windows.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
 
-### Code Splitting
+-   Node.js (v18+)
+-   npm / yarn
+-   A MetaMask wallet funded with Sonic Testnet tokens from the [Sonic Faucet](https://testnet.soniclabs.com/account).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 1. Backend Setup (Contracts & Simulators)
 
-### Analyzing the Bundle Size
+```bash
+# Clone the repository
+git clone [YOUR_GITHUB_REPO_URL]
+cd [YOUR_REPO_NAME]/contracts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Install dependencies
+npm install
 
-### Making a Progressive Web App
+# Create a .env file and add your private keys
+# (see .env.example)
+cp .env.example .env
+# Now, edit the .env file with your keys
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Compile the smart contracts
+npx hardhat compile
 
-### Advanced Configuration
+# Deploy the contracts to the Sonic Testnet
+npx hardhat run scripts/deploy.js --network sonic
+# (This will give you the contract address)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# IMPORTANT: Update the contract address in all simulator files
+# and registration scripts.
 
-### Deployment
+# Register the two vehicles
+npx hardhat run scripts/registerVehicle.js --network sonic
+npx hardhat run scripts/registerVehicle2.js --network sonic
+# (Note the Vehicle IDs this script outputs)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# IMPORTANT: Update the Vehicle IDs in the simulator and frontend files.
