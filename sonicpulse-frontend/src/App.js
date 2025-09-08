@@ -8,10 +8,10 @@ import './App.css';
 import bearing from '@turf/bearing';
 
 // --- ACTION REQUIRED: Update these constants with your latest deployment info ---
-const contractAddress = "0xfBF3EC9b2F218F00114012B448df1c31ed3A8440";
+const contractAddress = "0xD8aBFcC7897b5bf880b3d5BB96bd9e264118e55a";
 const contractABI = require("./abi/VehicleRegistry.json").abi; // Ensure this file is in src/abi/
-const VEHICLE_1_ID = 3; // The ID for your first vehicle (from registerVehicle.js)
-const VEHICLE_2_ID = 4; // The ID for your second vehicle (from registerVehicle2.js)
+const VEHICLE_1_ID = 1; // The ID for your first vehicle (from registerVehicle.js)
+const VEHICLE_2_ID = 2; // The ID for your second vehicle (from registerVehicle2.js)
 // ---
 // The GPS coordinate for the center of the smart intersection
 const INTERSECTION_COORDS = [34.0550, -118.2475];
@@ -95,7 +95,7 @@ const VehicleCard = ({ vehicleData }) => {
         <span>Status: <strong>{vehicleData.status}</strong></span>
       </div>
       <a 
-        href={`https://testnet.sonicscan.org/token/${contractAddress}/instance/${vehicleData.tokenId}`} 
+        href={`https://sonicscan.org/nft/${contractAddress}/${vehicleData.tokenId}`} 
         target="_blank" 
         rel="noopener noreferrer"
         className="nft-link"
@@ -118,7 +118,7 @@ function App() {
   const [latestBlock, setLatestBlock] = useState(0);
   const prevVehicle1Pos = useRef(null);
   const prevVehicle2Pos = useRef(null);
-  const readOnlyProvider = new ethers.JsonRpcProvider("https://rpc.testnet.soniclabs.com/");
+  const readOnlyProvider = new ethers.JsonRpcProvider("https://rpc.soniclabs.com/");
   const readOnlyContract = new ethers.Contract(contractAddress, contractABI, readOnlyProvider);
 
   useEffect(() => {

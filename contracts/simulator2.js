@@ -2,11 +2,11 @@
 const { ethers } = require("ethers");
 require("dotenv").config();
 
-const contractAddress = "0xfBF3EC9b2F218F00114012B448df1c31ed3A8440";
+const contractAddress = "0xD8aBFcC7897b5bf880b3d5BB96bd9e264118e55a";
 const contractABI = require("./abi/VehicleRegistry.json").abi; // Path to the ABI JSON file
 
 // --- ACTION REQUIRED: Use the correct ID for Vehicle 2 ---
-const vehicleId = 4; // Or whatever your ID is for the second vehicle
+const vehicleId = 2; // Or whatever your ID is for the second vehicle
 
 // --- DEFINE THE SHARED INTERSECTION ---
 const INTERSECTION_ID = 0;

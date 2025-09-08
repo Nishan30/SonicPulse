@@ -2,7 +2,7 @@
 const hre = require("hardhat");
 
 // --- IMPORTANT: Paste your LATEST VehicleRegistry contract address here ---
-const contractAddress = "0xfBF3EC9b2F218F00114012B448df1c31ed3A8440";
+const contractAddress = "0xD8aBFcC7897b5bf880b3d5BB96bd9e264118e55a";
 const contractABI = require("../abi/VehicleRegistry.json").abi; 
 
 async function main() {
