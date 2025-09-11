@@ -15,19 +15,5 @@ module.exports = {
       accounts: [process.env.DEVICE_PRIVATE_KEY_2], // It will read the same key
       chainId: 146, // The official Sonic Mainnet Chain ID
     },
-    etherscan: {
-    // Your API key from sonicscan.org
-    apiKey: "MC56QD99IDAAAHKPKCYHCJJC1JE9UK679S",
-    customChains: [
-      {
-        network: "sonic", // This MUST match the network name above
-        chainId: 146,
-        urls: {
-          apiURL: "https://api.sonicscan.org/api",
-          browserURL: "https://sonicscan.org"
-        }
-      }
-    ]
-  },
   },
 };

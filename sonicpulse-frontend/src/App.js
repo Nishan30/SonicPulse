@@ -10,7 +10,7 @@ import bearing from '@turf/bearing';
 // --- ACTION REQUIRED: Update these constants with your latest deployment info ---
 const contractAddress = "0xD8aBFcC7897b5bf880b3d5BB96bd9e264118e55a";
 const contractABI = require("./abi/VehicleRegistry.json").abi; // Ensure this file is in src/abi/
-const VEHICLE_1_ID = 1; // The ID for your first vehicle (from registerVehicle.js)
+const VEHICLE_1_ID = 3; // The ID for your first vehicle (from registerVehicle.js)
 const VEHICLE_2_ID = 2; // The ID for your second vehicle (from registerVehicle2.js)
 // ---
 // The GPS coordinate for the center of the smart intersection
